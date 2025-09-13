@@ -3,18 +3,18 @@
 %bcond_with	tests		# build with tests
 # TODO:
 # - runtime Requires if any
-%define		kdeframever	6.17
+%define		kdeframever	6.18
 %define		qtver		5.15.2
 %define		kfname		karchive
 
 Summary:	Reading, creating, and manipulating file archives
 Name:		kf6-%{kfname}
-Version:	6.17.0
+Version:	6.18.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	7ac1e1b5d4be693f208381b4fa704965
+# Source0-md5:	a42eeefc75366c9d083629ca1f31a2f3
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6Network-devel >= %{qtver}
@@ -34,6 +34,7 @@ BuildRequires:	zstd-devel
 #Obsoletes:	kf5-%{kfname} < %{version}
 Requires:	Qt6Core >= %{qtver}
 Requires:	kf6-dirs
+%requires_eq_to Qt6Core Qt6Core-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		qt6dir		%{_libdir}/qt6
