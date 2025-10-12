@@ -3,18 +3,18 @@
 %bcond_with	tests		# build with tests
 # TODO:
 # - runtime Requires if any
-%define		kdeframever	6.18
+%define		kdeframever	6.19
 %define		qtver		5.15.2
 %define		kfname		karchive
 
 Summary:	Reading, creating, and manipulating file archives
 Name:		kf6-%{kfname}
-Version:	6.18.0
+Version:	6.19.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	a42eeefc75366c9d083629ca1f31a2f3
+# Source0-md5:	a9d4c1c1d1cc876908854632e4d3ebc9
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6Network-devel >= %{qtver}
@@ -22,18 +22,18 @@ BuildRequires:	Qt6Test-devel >= %{qtver}
 BuildRequires:	bzip2-devel
 BuildRequires:	cmake >= 3.16
 BuildRequires:	kf6-extra-cmake-modules >= %{version}
-BuildRequires:	qt6-linguist
 BuildRequires:	ninja
 BuildRequires:	pkgconfig
+BuildRequires:	qt6-linguist
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildRequires:	xz-devel
 BuildRequires:	zlib-devel
 BuildRequires:	zstd-devel
-#Obsoletes:	kf5-%{kfname} < %{version}
 Requires:	Qt6Core >= %{qtver}
 Requires:	kf6-dirs
+#Obsoletes:	kf5-%{kfname} < %{version}
 %requires_eq_to Qt6Core Qt6Core-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -50,10 +50,10 @@ like the GZip format, via a subclass of QIODevice.
 Summary:	Header files for %{kfname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kfname}
 Group:		X11/Development/Libraries
-#Obsoletes:	kf5-%{kfname}-devel < %{version}
 Requires:	%{name} = %{version}-%{release}
 Requires:	Qt6Core-devel >= %{qtver}
 Requires:	cmake >= 3.16
+#Obsoletes:	kf5-%{kfname}-devel < %{version}
 
 %description devel
 Header files for %{kfname} development.
@@ -93,7 +93,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS README.md
 %ghost %{_libdir}/libKF6Archive.so.6
-%attr(755,root,root) %{_libdir}/libKF6Archive.so.*.*
+%{_libdir}/libKF6Archive.so.*.*
 %config(noreplace) %verify(not md5 mtime size) %{_datadir}/qlogging-categories6/karchive.categories
 %{_datadir}/qlogging-categories6/karchive.renamecategories
 
