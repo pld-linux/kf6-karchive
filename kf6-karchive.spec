@@ -46,6 +46,13 @@ of "archive" formats like ZIP and TAR.
 If also provides transparent compression and decompression of data,
 like the GZip format, via a subclass of QIODevice.
 
+%description -l pl.UTF-8
+Karchive dostarcza klas do łatwego czytania, tworzenia i przetwarzania
+archiwów w formatach takich jak ZIP czy TAR.
+
+Pozwala także na przezroczystą kompresję i dekompresję danych, jak w
+formacie GZip, przez podklasę QIODevice.
+
 %package devel
 Summary:	Header files for %{kfname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kfname}
